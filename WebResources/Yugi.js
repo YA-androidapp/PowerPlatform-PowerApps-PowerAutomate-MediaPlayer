@@ -21,7 +21,8 @@ var Yugi = window.Yugi || {};
         var formContext = executionContext.getFormContext();
 
         // Automatically set some column values if the account name contains "Contoso"
-        /// var accountName = formContext.getAttribute("name").getValue();
+        const fileValue = formContext.getAttribute("ya_file").getValue();
+        console.log("fileValue", fileValue)
         /// if (accountName.toLowerCase().search("contoso") != -1) {
         ///     formContext.getAttribute("websiteurl").setValue("https://www.contoso.com");
         ///     formContext.getAttribute("telephone1").setValue("425-555-0100");
