@@ -1,5 +1,6 @@
-const inputFile = querySelector('input[type="file"]')
+const inputFile = document.querySelector('input[type="file"]')
 inputFile.onchange = function () {
+    console.log("inputFile.onchange")
     const reader = new FileReader()
     reader.onload = function () {
         const buffer = this.result
