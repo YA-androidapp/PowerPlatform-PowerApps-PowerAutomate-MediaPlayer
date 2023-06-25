@@ -23,6 +23,16 @@ var Yugi = window.Yugi || {};
         // Automatically set some column values if the account name contains "Contoso"
         const fileValue = formContext.getAttribute("ya_file").getValue();
         console.log("fileValue", fileValue)
+
+        /// fetch(fileValue.fileUrl)
+        /// .then(res => res.arrayBuffer())
+        /// .then(buffer => {
+        ///         const mp3tag = new MP3Tag(buffer)
+        ///         mp3tag.read()
+        ///         console.log(mp3tag.tags)
+        /// })
+        /// .catch(err => console.error(err.message));
+
         /// if (accountName.toLowerCase().search("contoso") != -1) {
         ///     formContext.getAttribute("websiteurl").setValue("https://www.contoso.com");
         ///     formContext.getAttribute("telephone1").setValue("425-555-0100");
