@@ -16,11 +16,9 @@ var Yugi = window.Yugi || {};
         /// window.setTimeout(function () { formContext.ui.clearFormNotification(myUniqueId); }, 5000);
     }
 
-    // Code to run in the column OnChange event
     this.attributeOnChange = function (executionContext) {
         var formContext = executionContext.getFormContext();
 
-        // Automatically set some column values if the account name contains "Contoso"
         const fileValue = formContext.getAttribute("ya_file").getValue();
         if (fileValue) {
             console.log("fileValue", fileValue)
@@ -33,18 +31,19 @@ var Yugi = window.Yugi || {};
                     reader.onload = function () {
                         const mp3tag = new MP3Tag(reader.result)
                         mp3tag.read()
-                        console.log(mp3tag.tags)
+                        console.log("mp3tag.tags", mp3tag.tags)
+
+                        if (mp3tag.tags) {
+                            formContext.getAttribute("ya_title").setValue(mp3tag.tags.title)
+                            formContext.getAttribute("ya_artist").setValue(mp3tag.tags.artist)
+                            formContext.getAttribute("ya_album").setValue(mp3tag.tags.album)
+                            formContext.getAttribute("ya_tracknumber").setValue(mp3tag.tags.track)
+                            formContext.getAttribute("ya_year").setValue(mp3tag.tags.year)
+                            formContext.getAttribute("ya_genre").setValue(mp3tag.tags.genre)
+                        }
                     };
                     reader.readAsArrayBuffer(blob)
                 })
-            /// .catch(err => console.error(err.message));
-
-            /// if (accountName.toLowerCase().search("contoso") != -1) {
-            ///     formContext.getAttribute("websiteurl").setValue("https://www.contoso.com");
-            ///     formContext.getAttribute("telephone1").setValue("425-555-0100");
-            ///     formContext.getAttribute("description").setValue("Website URL, Phone and Description set using custom script.");
-            /// }
-
         }
     }
 
