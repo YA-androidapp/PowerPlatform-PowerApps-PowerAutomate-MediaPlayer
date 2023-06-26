@@ -37,7 +37,7 @@ var Yugi = window.Yugi || {};
                             formContext.getAttribute("ya_title").setValue(mp3tag.tags.title)
                             formContext.getAttribute("ya_artist").setValue(mp3tag.tags.artist)
                             formContext.getAttribute("ya_album").setValue(mp3tag.tags.album)
-                            formContext.getAttribute("ya_tracknumber").setValue(mp3tag.tags.track)
+                            formContext.getAttribute("ya_tracknumber").setValue(Number(mp3tag.tags.track))
                             formContext.getAttribute("ya_year").setValue(mp3tag.tags.year)
                             formContext.getAttribute("ya_genre").setValue(mp3tag.tags.genre)
                         }
