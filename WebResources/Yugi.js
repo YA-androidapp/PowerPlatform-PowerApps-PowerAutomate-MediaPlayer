@@ -25,9 +25,9 @@ var Yugi = window.Yugi || {};
         if (fileValue) {
             console.log("fileValue", fileValue)
             fetch(fileValue.fileUrl)
-                .then(res => {
-                    console.log("res", res)
-                    console.log("blob", res.blob())
+                .then(res => res.blob())
+                .then(blob => {
+                    console.log("blobData", blob)
 
                     var reader = new FileReader()
                     reader.onload = function () {
@@ -35,7 +35,7 @@ var Yugi = window.Yugi || {};
                         mp3tag.read()
                         console.log(mp3tag.tags)
                     };
-                    reader.readAsArrayBuffer(res.blob())
+                    reader.readAsArrayBuffer(blob)
                 })
             /// .catch(err => console.error(err.message));
 
