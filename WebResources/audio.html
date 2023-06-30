@@ -3,3 +3,35 @@
         Download audio file
     </a>
 </audio>
+<script>
+    const parseQueries = () => {
+        console.log('location.search', location.search)
+        const params = location.search.substr(1)
+        result = {}
+
+        if (!params)
+            return result
+
+        params.split('&').forEach((s) => {
+            const arr = s.split('=')
+            result[arr[0]] = arr[1]
+        })
+
+        return result
+    }
+
+    document.onreadystatechange = function () {
+        if (document.readyState == 'complete') {
+            (function () {
+                const queries = parseQueries()
+                console.log('queries', queries)
+                if (Object.keys(queries).length == 0 || typeof document.getElementById('form-audio-tag') === 'undefined') {
+                    setTimeout(arguments.callee, 200);
+                } else {
+                    const u = '/api/data/v9.0/ya_mediafiles(' + queries['id'] + ')/ya_file/$value'
+                    document.getElementById('form-audio-tag').src = u
+                }
+            })();
+        }
+    }
+</script>

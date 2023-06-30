@@ -9,11 +9,6 @@ var Yugi = window.Yugi || {};
     this.formOnLoad = function (executionContext) {
         var formContext = executionContext.getFormContext();
 
-        const fileValue = formContext.getAttribute("ya_file").getValue();
-        if (fileValue) {
-           // document.getElementById("form-audio-tag").src = fileValue.fileUrl;
-        }
-
         // Display the form level notification as an INFO
         /// formContext.ui.setFormNotification(message, "INFO", myUniqueId);
 
