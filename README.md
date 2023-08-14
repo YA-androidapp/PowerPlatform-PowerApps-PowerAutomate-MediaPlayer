@@ -1,6 +1,6 @@
 # PowerPlatform-PowerApps-PowerAutomate-MediaPlayer
 
-Power Apps モデル駆動型アプリと Power Automate クラウドフローで実装したマルチメディアプレーヤーアプリ（動画／音楽）
+Power Apps モデル駆動型アプリと Power Automate クラウドフローで実装したマルチメディアプレーヤーアプリ（動画／音楽； mp3tag.js を利用したMP3 ID3タグ情報取得）
 
 ---
 
